@@ -4,14 +4,15 @@
 
 > Ruby's Telegram-Bot Project
 
-![screenshot](./imgs/ss.png)
+![screenshot](../imgs/ss.png)
+
 
 ## Concept
 > Telegram-bot, Most popular attributes from Telegram is the possibility of creating your own bot that do whatever you want. I have created a bot which will give you music recomendations in the form of youtube links according the type you want, for example if you want to listen to love songs just type /love and it will give you link to love music.
 
 ## 🎥 PRESENTATION VIDEO
 
-[Link Presentation Video](https://www.loom.com/share/824adf88e7594ef5a42b0066a20317c8)
+[Link Presentation Video]()
 
 ## Invitation Link
 
