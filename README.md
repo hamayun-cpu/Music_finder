@@ -11,7 +11,7 @@
 
 ## 🎥 PRESENTATION VIDEO
 
-[Link Presentation Video]()
+[Link Presentation Video](https://www.loom.com/share/4326428a78e1400ca883ece73e1c9339)
 
 ## Invitation Link
 
