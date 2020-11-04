@@ -17,8 +17,8 @@ class Bot
   end
 
   def starter
-    Telegram::Bot::Client.run(token) do |bot| # rubocop: disable Metrics/BlockLength
-      bot.listen do |message| # rubocop: disable Metrics/BlockLength
+    Telegram::Bot::Client.run(token) do |bot|
+      bot.listen do |message|
         case message.text
         when '/start'
           bot.api.send_message(chat_id: message.chat.id, text: "Hey, #{message.from.first_name}, Welcome to Music Finder, this will give youtube links of music. Which Depends on the category that you choose. Use /stop to stop the bot. Choose categories by just writing one of these : /heavy, /party, /peace, /light, /motivational, /love")
