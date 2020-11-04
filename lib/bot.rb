@@ -1,4 +1,4 @@
-# rubocop: disable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/BlockLength,Metrics/MethodLength
+# rubocop: disable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
 
 require 'telegram/bot'
 require_relative 'music'
@@ -52,4 +52,4 @@ class Bot
   end
 end
 
-# rubocop: enable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/BlockLength,Metrics/MethodLength
+# rubocop: enable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
