@@ -1,6 +1,6 @@
 require_relative '../lib/music'
 
-describe Musics do # rubocop: disable Metrics/BlockLength
+describe Musics do
   context '#initialize' do
     let(:song) { Musics.new }
 
