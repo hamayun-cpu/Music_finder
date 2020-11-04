@@ -1,4 +1,4 @@
-# rubocop: disable Metrics/MethodLength,Metrics/CyclomaticComplexity,Metrics/AbcSize,Layout/LineLength
+# rubocop: disable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/BlockLength,Metrics/MethodLength
 
 require 'telegram/bot'
 require_relative 'music'
@@ -15,6 +15,8 @@ class Bot
       puts "Properly Bot couldn't connect. Presenting: #{e}"
     end
   end
+
+  private
 
   def starter
     Telegram::Bot::Client.run(token) do |bot|
@@ -50,4 +52,4 @@ class Bot
   end
 end
 
-# rubocop: enable Metrics/MethodLength,Metrics/CyclomaticComplexity,Metrics/AbcSize,Layout/LineLength
+# rubocop: enable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/BlockLength,Metrics/MethodLength
