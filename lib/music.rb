@@ -1,4 +1,4 @@
-# rubocop: disable Metrics/MethodLength
+# rubocop: disable Style/FrozenStringLiteralComment,Metrics/MethodLength
 
 # class for music recomendations
 class Musics
@@ -59,4 +59,4 @@ class Musics
   end
 end
 
-# rubocop: enable Metrics/MethodLength
+# rubocop: enable Style/FrozenStringLiteralComment,Metrics/MethodLength

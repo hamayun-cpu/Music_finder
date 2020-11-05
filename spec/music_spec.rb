@@ -1,3 +1,5 @@
+# rubocop: disable Style/FrozenStringLiteralComment
+
 require_relative '../lib/music'
 
 describe Musics do
@@ -19,8 +21,6 @@ describe Musics do
                                     'https://www.youtube.com/watch?v=X6BOs1Ejpvw&ab_channel=WorkoutMusic',
                                     'https://www.youtube.com/watch?v=yYnHa1G9_Xc',
                                     'https://www.youtube.com/watch?v=5abamRO41fE',
-                                    'https://www.youtube.com/watch?v=d1cmyOaoZfc',
-                                    'https://www.youtube.com/watch?v=U5u9glfqDsc',
                                     'https://www.youtube.com/watch?v=YcTCIMKeiNQ'])
     end
   end
@@ -32,3 +32,5 @@ describe Musics do
     end
   end
 end
+
+# rubocop: enable Style/FrozenStringLiteralComment
