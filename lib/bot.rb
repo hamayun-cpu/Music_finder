@@ -1,5 +1,3 @@
-# rubocop: disable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
-
 require 'telegram/bot'
 require_relative 'music'
 
@@ -18,28 +16,40 @@ class Bot
 
   private
 
+  def send_bot_msg(bot, message, taste)
+    @taste.list_pick(taste)
+    bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(taste).to_s, date: message.date)
+  end
+
+  def welcome_message(message)
+    "Hey, #{message.from.first_name},
+     Welcome to Music Finder,
+     this will give youtube links of music.
+     Which Depends on the category that you choose.
+     Use /stop to stop the bot.
+     Choose categories by just writing one of these :
+     /heavy, /party, /peace, /light, /motivational, /love"
+  end
+
+  def warning_message(message)
+    "Invalid Input, #{message.from.first_name},
+     please enter one of these options: /heavy, /party, /peace, /light, /motivational, /love"
+  end
+
   def starter
     Telegram::Bot::Client.run(token) do |bot|
       bot.listen do |message|
         case message.text
-        when '/heavy'
-          @taste.list_pick(@taste.heavy)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.heavy).to_s, date: message.date)
         when '/party'
-          @taste.list_pick(@taste.party)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.party).to_s, date: message.date)
+          send_bot_msg(bot, message, @taste.party)
         when '/peace'
-          @taste.list_pick(@taste.peace)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.peace).to_s, date: message.date)
+          send_bot_msg(bot, message, @taste.peace)
         when '/light'
-          @taste.list_pick(@taste.light)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.light).to_s, date: message.date)
+          send_bot_msg(bot, message, @taste.light)
         when '/motivational'
-          @taste.list_pick(@taste.motivational)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.motivational).to_s, date: message.date)
+          send_bot_msg(bot, message, @taste.motivational)
         when '/love'
-          @taste.list_pick(@taste.love)
-          bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.love).to_s, date: message.date)
+          send_bot_msg(bot, message, @taste.love)
         else
           other_cases(message, bot)
         end
@@ -49,14 +59,16 @@ class Bot
 
   def other_cases(message, bot)
     case message.text
+    when '/heavy'
+      send_bot_msg(bot, message, @taste.heavy)
     when '/start'
-      bot.api.send_message(chat_id: message.chat.id, text: "Hey, #{message.from.first_name}, Welcome to Music Finder, this will give youtube links of music. Which Depends on the category that you choose. Use /stop to stop the bot. Choose categories by just writing one of these : /heavy, /party, /peace, /light, /motivational, /love")
+      bot.api.send_message(chat_id: message.chat.id, text: welcome_message(message))
     when '/stop'
-      bot.api.send_message(chat_id: message.chat.id, text: "Take Care! Bye, #{message.from.first_name}", date: message.date)
+      bot.api.send_message(chat_id: message.chat.id,
+                           text: "Take Care! Bye,
+                           #{message.from.first_name}", date: message.date)
     else
-      bot.api.send_message(chat_id: message.chat.id, text: "Invalid Input, #{message.from.first_name}, please enter one of these options: /heavy, /party, /peace, /light, /motivational, /love")
+      bot.api.send_message(chat_id: message.chat.id, text: warning_message(message))
     end
   end
 end
-
-# rubocop: enable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
