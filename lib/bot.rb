@@ -1,4 +1,4 @@
-# rubocop: disable Style/FrozenStringLiteralComment,Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
+# rubocop: disable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
 
 require 'telegram/bot'
 require_relative 'music'
@@ -41,13 +41,13 @@ class Bot
           @taste.list_pick(@taste.love)
           bot.api.send_message(chat_id: message.chat.id, text: @taste.list_pick(@taste.love).to_s, date: message.date)
         else
-          other_cases(message)
+          other_cases(message, bot)
         end
       end
     end
   end
 
-  def other_cases(message)
+  def other_cases(message, bot)
     case message.text
     when '/start'
       bot.api.send_message(chat_id: message.chat.id, text: "Hey, #{message.from.first_name}, Welcome to Music Finder, this will give youtube links of music. Which Depends on the category that you choose. Use /stop to stop the bot. Choose categories by just writing one of these : /heavy, /party, /peace, /light, /motivational, /love")
@@ -59,4 +59,4 @@ class Bot
   end
 end
 
-# rubocop: enable Style/FrozenStringLiteralComment,Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength
+# rubocop: enable Layout/LineLength,Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength

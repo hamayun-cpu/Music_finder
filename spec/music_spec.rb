@@ -1,5 +1,3 @@
-# rubocop: disable Style/FrozenStringLiteralComment
-
 require_relative '../lib/music'
 
 describe Musics do
@@ -32,5 +30,3 @@ describe Musics do
     end
   end
 end
-
-# rubocop: enable Style/FrozenStringLiteralComment
